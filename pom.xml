@@ -131,8 +131,11 @@
 	<profiles>
 		<profile>
 			<id>build42</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 			<build>
-				<finalName>${project.artifactId}-${project.version}.jre8-preview</finalName>
+				<finalName>${project.artifactId}-${project.version}.jre8-patch</finalName>
 				<plugins>
 					<plugin>
 						<artifactId>maven-compiler-plugin</artifactId>
@@ -161,9 +164,6 @@
 
 		<profile>
 			<id>build43</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 			<build>
 				<finalName>${project.artifactId}-${project.version}.jre10-preview</finalName>
 				<plugins>
@@ -279,7 +279,7 @@
 					</execution>
 				</executions>
 			</plugin>
-      
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>

@@ -1,8 +1,8 @@
 /*
  * Microsoft JDBC Driver for SQL Server
- * 
+ *
  * Copyright(c) Microsoft Corporation All rights reserved.
- * 
+ *
  * This program is made available under the terms of the MIT License. See the LICENSE file in the project root for more information.
  */
 
@@ -178,7 +178,7 @@ enum KeyStoreAuthentication {
 enum AuthenticationScheme {
     nativeAuthentication,
     javaKerberos;
-    
+
     static AuthenticationScheme valueOfString(String value) throws SQLServerException {
         AuthenticationScheme scheme;
         if (value.toLowerCase(Locale.US).equalsIgnoreCase(AuthenticationScheme.javaKerberos.toString())) {
@@ -246,13 +246,13 @@ enum SQLServerDriverObjectProperty {
     }
 
     /**
-     * returning string due to structure of DRIVER_PROPERTIES_PROPERTY_ONLY 
+     * returning string due to structure of DRIVER_PROPERTIES_PROPERTY_ONLY
      * @return
      */
     public String getDefaultValue() {
         return defaultValue;
     }
-    
+
     public String toString() {
         return name;
     }
@@ -310,7 +310,7 @@ enum SQLServerDriverStringProperty
 }
 
 enum SQLServerDriverIntProperty {
-    PACKET_SIZE                                ("packetSize",                              TDS.DEFAULT_PACKET_SIZE),            
+    PACKET_SIZE                                ("packetSize",                              TDS.DEFAULT_PACKET_SIZE),
     LOCK_TIMEOUT                               ("lockTimeout",                             -1),
     LOGIN_TIMEOUT                              ("loginTimeout",                            15),
     QUERY_TIMEOUT                              ("queryTimeout",                            -1),
@@ -319,8 +319,8 @@ enum SQLServerDriverIntProperty {
     SERVER_PREPARED_STATEMENT_DISCARD_THRESHOLD("serverPreparedStatementDiscardThreshold", SQLServerConnection.DEFAULT_SERVER_PREPARED_STATEMENT_DISCARD_THRESHOLD),
     STATEMENT_POOLING_CACHE_SIZE               ("statementPoolingCacheSize",               SQLServerConnection.DEFAULT_STATEMENT_POOLING_CACHE_SIZE),
     CANCEL_QUERY_TIMEOUT                       ("cancelQueryTimeout",                      -1),
-    ;  
-    
+    ;
+
     private final String name;
     private final int defaultValue;
 
@@ -339,10 +339,10 @@ enum SQLServerDriverIntProperty {
     }
 }
 
-enum SQLServerDriverBooleanProperty 
+enum SQLServerDriverBooleanProperty
 {
     DISABLE_STATEMENT_POOLING                 ("disableStatementPooling",                   true),
-    ENCRYPT                                   ("encrypt",                                   false), 
+    ENCRYPT                                   ("encrypt",                                   false),
     INTEGRATED_SECURITY                       ("integratedSecurity",                        false),
     LAST_UPDATE_COUNT                         ("lastUpdateCount",                           true),
     MULTI_SUBNET_FAILOVER                     ("multiSubnetFailover",                       false),
@@ -382,10 +382,10 @@ public final class SQLServerDriver implements java.sql.Driver {
     {
         //                                                               													  default       																						  required    available choices
         //  property name                                               													  value        							 															      property    (if appropriate)
-        new SQLServerDriverPropertyInfo(SQLServerDriverStringProperty.APPLICATION_INTENT.toString(),    				      SQLServerDriverStringProperty.APPLICATION_INTENT.getDefaultValue(), 									  false,	  new String[]{ApplicationIntent.READ_ONLY.toString(), ApplicationIntent.READ_WRITE.toString()}),            	
+        new SQLServerDriverPropertyInfo(SQLServerDriverStringProperty.APPLICATION_INTENT.toString(),    				      SQLServerDriverStringProperty.APPLICATION_INTENT.getDefaultValue(), 									  false,	  new String[]{ApplicationIntent.READ_ONLY.toString(), ApplicationIntent.READ_WRITE.toString()}),
         new SQLServerDriverPropertyInfo(SQLServerDriverStringProperty.APPLICATION_NAME.toString(),    					      SQLServerDriverStringProperty.APPLICATION_NAME.getDefaultValue(), 									  false,	  null),
         new SQLServerDriverPropertyInfo(SQLServerDriverStringProperty.COLUMN_ENCRYPTION.toString(),            			      SQLServerDriverStringProperty.COLUMN_ENCRYPTION.getDefaultValue(),       							      false,      new String[] {ColumnEncryptionSetting.Disabled.toString(), ColumnEncryptionSetting.Enabled.toString()}),
-        new SQLServerDriverPropertyInfo(SQLServerDriverStringProperty.DATABASE_NAME.toString(),       					      SQLServerDriverStringProperty.DATABASE_NAME.getDefaultValue(),       								      false,      null),                        
+        new SQLServerDriverPropertyInfo(SQLServerDriverStringProperty.DATABASE_NAME.toString(),       					      SQLServerDriverStringProperty.DATABASE_NAME.getDefaultValue(),       								      false,      null),
         new SQLServerDriverPropertyInfo(SQLServerDriverBooleanProperty.DISABLE_STATEMENT_POOLING.toString(), 			      Boolean.toString(SQLServerDriverBooleanProperty.DISABLE_STATEMENT_POOLING.getDefaultValue()),       	  false,      new String[] {"true"}),
         new SQLServerDriverPropertyInfo(SQLServerDriverBooleanProperty.ENCRYPT.toString(),                      		      Boolean.toString(SQLServerDriverBooleanProperty.ENCRYPT.getDefaultValue()),        					  false,      TRUE_FALSE),
         new SQLServerDriverPropertyInfo(SQLServerDriverStringProperty.FAILOVER_PARTNER.toString(),              		      SQLServerDriverStringProperty.FAILOVER_PARTNER.getDefaultValue(),           							  false,      null),
@@ -394,11 +394,11 @@ public final class SQLServerDriver implements java.sql.Driver {
         new SQLServerDriverPropertyInfo(SQLServerDriverBooleanProperty.INTEGRATED_SECURITY.toString(),          		      Boolean.toString(SQLServerDriverBooleanProperty.INTEGRATED_SECURITY.getDefaultValue()),      		      false,      TRUE_FALSE),
         new SQLServerDriverPropertyInfo(SQLServerDriverStringProperty.KEY_STORE_AUTHENTICATION.toString(),            	      SQLServerDriverStringProperty.KEY_STORE_AUTHENTICATION.getDefaultValue(),       						  false,      new String[] {KeyStoreAuthentication.JavaKeyStorePassword.toString()}),
         new SQLServerDriverPropertyInfo(SQLServerDriverStringProperty.KEY_STORE_SECRET .toString(),            			      SQLServerDriverStringProperty.KEY_STORE_SECRET.getDefaultValue(),       								  false,      null),
-        new SQLServerDriverPropertyInfo(SQLServerDriverStringProperty.KEY_STORE_LOCATION .toString(),            		      SQLServerDriverStringProperty.KEY_STORE_LOCATION.getDefaultValue(),       							  false,      null),        
+        new SQLServerDriverPropertyInfo(SQLServerDriverStringProperty.KEY_STORE_LOCATION .toString(),            		      SQLServerDriverStringProperty.KEY_STORE_LOCATION.getDefaultValue(),       							  false,      null),
         new SQLServerDriverPropertyInfo(SQLServerDriverBooleanProperty.LAST_UPDATE_COUNT.toString(),            		      Boolean.toString(SQLServerDriverBooleanProperty.LAST_UPDATE_COUNT.getDefaultValue()),       			  false,      TRUE_FALSE),
         new SQLServerDriverPropertyInfo(SQLServerDriverIntProperty.LOCK_TIMEOUT.toString(),                   			      Integer.toString(SQLServerDriverIntProperty.LOCK_TIMEOUT.getDefaultValue()),         				      false,      null),
         new SQLServerDriverPropertyInfo(SQLServerDriverIntProperty.LOGIN_TIMEOUT.toString(),                  			      Integer.toString(SQLServerDriverIntProperty.LOGIN_TIMEOUT.getDefaultValue()),         				  false,      null),
-        new SQLServerDriverPropertyInfo(SQLServerDriverBooleanProperty.MULTI_SUBNET_FAILOVER.toString(),            	      Boolean.toString(SQLServerDriverBooleanProperty.MULTI_SUBNET_FAILOVER.getDefaultValue()),       		  false,      TRUE_FALSE),        
+        new SQLServerDriverPropertyInfo(SQLServerDriverBooleanProperty.MULTI_SUBNET_FAILOVER.toString(),            	      Boolean.toString(SQLServerDriverBooleanProperty.MULTI_SUBNET_FAILOVER.getDefaultValue()),       		  false,      TRUE_FALSE),
         new SQLServerDriverPropertyInfo(SQLServerDriverIntProperty.PACKET_SIZE.toString(),                    			      Integer.toString(SQLServerDriverIntProperty.PACKET_SIZE.getDefaultValue()), 							  false, 	  null),
         new SQLServerDriverPropertyInfo(SQLServerDriverStringProperty.PASSWORD.toString(),                      		      SQLServerDriverStringProperty.PASSWORD.getDefaultValue(),           									  true,       null),
         new SQLServerDriverPropertyInfo(SQLServerDriverIntProperty.PORT_NUMBER.toString(),                    			      Integer.toString(SQLServerDriverIntProperty.PORT_NUMBER.getDefaultValue()),       					  false,      null),
@@ -438,13 +438,13 @@ public final class SQLServerDriver implements java.sql.Driver {
             //                                                                                                                  default                                                                                         required    available choices
             //                          property name                                                                           value                                                                                           property    (if appropriate)
             new SQLServerDriverPropertyInfo(SQLServerDriverStringProperty.ACCESS_TOKEN.toString(),                      SQLServerDriverStringProperty.ACCESS_TOKEN.getDefaultValue(),                                           false,      null),
-            new SQLServerDriverPropertyInfo(SQLServerDriverObjectProperty.GSS_CREDENTIAL.toString(),                    SQLServerDriverObjectProperty.GSS_CREDENTIAL.getDefaultValue(),                                         false,      null),        
+            new SQLServerDriverPropertyInfo(SQLServerDriverObjectProperty.GSS_CREDENTIAL.toString(),                    SQLServerDriverObjectProperty.GSS_CREDENTIAL.getDefaultValue(),                                         false,      null),
     };
 
 	private static final String driverPropertiesSynonyms[][] = {
-		{"database", SQLServerDriverStringProperty.DATABASE_NAME.toString()}, 	
-		{"userName",SQLServerDriverStringProperty.USER.toString()},			
-		{"server",SQLServerDriverStringProperty.SERVER_NAME.toString()},		
+		{"database", SQLServerDriverStringProperty.DATABASE_NAME.toString()},
+		{"userName",SQLServerDriverStringProperty.USER.toString()},
+		{"server",SQLServerDriverStringProperty.SERVER_NAME.toString()},
 		{"port", SQLServerDriverIntProperty.PORT_NUMBER.toString()}
     };
     static private final AtomicInteger baseID = new AtomicInteger(0);	// Unique id generator for each instance (used for logging).
@@ -557,7 +557,7 @@ public final class SQLServerDriver implements java.sql.Driver {
 
     /**
      * normalize the property names
-     * 
+     *
      * @param name
      *            name to normalize
      * @param logger
@@ -586,7 +586,7 @@ public final class SQLServerDriver implements java.sql.Driver {
 
     /**
      * get property-only names that do not work with connection string
-     * 
+     *
      * @param name
      *            to normalize
      * @param logger
@@ -616,12 +616,7 @@ public final class SQLServerDriver implements java.sql.Driver {
         // Merge connectProperties (from URL) and supplied properties from user.
         Properties connectProperties = parseAndMergeProperties(Url, suppliedProperties);
         if (connectProperties != null) {
-            if (Util.use43Wrapper()) {
-                result = new SQLServerConnection43(toString());
-            }
-            else {
-                result = new SQLServerConnection(toString());
-            }
+            result = new SQLServerConnection(toString());
             result.connect(connectProperties, null);
         }
         loggerExternal.exiting(getClassNameLogging(), "connect", result);

@@ -1,8 +1,8 @@
 /*
  * Microsoft JDBC Driver for SQL Server
- * 
+ *
  * Copyright(c) Microsoft Corporation All rights reserved.
- * 
+ *
  * This program is made available under the terms of the MIT License. See the LICENSE file in the project root for more information.
  */
 
@@ -157,7 +157,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * sets the authentication mode
-     * 
+     *
      * @param authentication
      *            the authentication mode
      */
@@ -167,7 +167,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * Retrieves the authentication mode
-     * 
+     *
      * @return the authentication value
      */
     public String getAuthentication() {
@@ -177,7 +177,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * sets GSSCredential
-     * 
+     *
      * @param userCredential the credential
      */
     public void setGSSCredentials(GSSCredential userCredential){
@@ -186,17 +186,17 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * Retrieves the GSSCredential
-     * 
+     *
      * @return GSSCredential
      */
     public GSSCredential getGSSCredentials(){
         return (GSSCredential) getObjectProperty(connectionProps, SQLServerDriverObjectProperty.GSS_CREDENTIAL.toString(),
                 SQLServerDriverObjectProperty.GSS_CREDENTIAL.getDefaultValue());
     }
-    
+
     /**
      * Sets the access token.
-     * 
+     *
      * @param accessToken
      *            to be set in the string property.
      */
@@ -206,7 +206,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * Retrieves the access token.
-     * 
+     *
      * @return the access token.
      */
     public String getAccessToken() {
@@ -219,7 +219,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
     // returns the default value of false.
     /**
      * Enables/disables Always Encrypted functionality for the data source object. The default is Disabled.
-     * 
+     *
      * @param columnEncryptionSetting
      *            Enables/disables Always Encrypted functionality for the data source object. The default is Disabled.
      */
@@ -229,7 +229,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * Retrieves the Always Encrypted functionality setting for the data source object.
-     * 
+     *
      * @return the Always Encrypted functionality setting for the data source object.
      */
     public String getColumnEncryptionSetting() {
@@ -240,7 +240,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
     /**
      * Sets the name that identifies a key store. Only value supported is the "JavaKeyStorePassword" for identifying the Java Key Store. The default
      * is null.
-     * 
+     *
      * @param keyStoreAuthentication
      *            the name that identifies a key store.
      */
@@ -250,7 +250,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * Gets the value of the keyStoreAuthentication setting for the data source object.
-     * 
+     *
      * @return the value of the keyStoreAuthentication setting for the data source object.
      */
     public String getKeyStoreAuthentication() {
@@ -261,7 +261,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
     /**
      * Sets the password for the Java keystore. Note that, for Java Key Store provider the password for the keystore and the key must be the same.
      * Note that, keyStoreAuthentication must be set with "JavaKeyStorePassword".
-     * 
+     *
      * @param keyStoreSecret
      *            the password to use for the keystore as well as for the key
      */
@@ -271,7 +271,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * Sets the location including the file name for the Java keystore. Note that, keyStoreAuthentication must be set with "JavaKeyStorePassword".
-     * 
+     *
      * @param keyStoreLocation
      *            the location including the file name for the Java keystore.
      */
@@ -281,7 +281,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * Retrieves the keyStoreLocation for the Java Key Store.
-     * 
+     *
      * @return the keyStoreLocation for the Java Key Store.
      */
     public String getKeyStoreLocation() {
@@ -320,7 +320,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
      * transparentNetworkIPResolution is ignored if database mirroring is used
      * <p>
      * transparentNetworkIPResolution is ignored if there are more than 64 IP addresses
-     * 
+     *
      * @param tnir
      *            if set to true, the driver attempts to connect to the first IP address available. It is true by default.
      */
@@ -330,7 +330,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * Retrieves the TransparentNetworkIPResolution value.
-     * 
+     *
      * @return if enabled, returns true. Otherwise, false.
      */
     public boolean getTransparentNetworkIPResolution() {
@@ -477,7 +477,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * Translates the serverName from Unicode to ASCII Compatible Encoding (ACE)
-     * 
+     *
      * @param serverNameAsACE
      *            if enabled the servername will be translated to ASCII Compatible Encoding (ACE)
      */
@@ -487,7 +487,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * Retrieves if the serverName should be translated from Unicode to ASCII Compatible Encoding (ACE)
-     * 
+     *
      * @return if enabled, will return true. Otherwise, false.
      */
     public boolean getServerNameAsACE() {
@@ -576,7 +576,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
         return getBooleanProperty(connectionProps, SQLServerDriverBooleanProperty.XOPEN_STATES.toString(),
                 SQLServerDriverBooleanProperty.XOPEN_STATES.getDefaultValue());
     }
-    
+
     public void setFIPS(boolean fips) {
         setBooleanProperty(connectionProps, SQLServerDriverBooleanProperty.FIPS.toString(), fips);
     }
@@ -585,7 +585,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
         return getBooleanProperty(connectionProps, SQLServerDriverBooleanProperty.FIPS.toString(),
                 SQLServerDriverBooleanProperty.FIPS.getDefaultValue());
     }
-    
+
     public void setSSLProtocol(String sslProtocol) {
         setStringProperty(connectionProps, SQLServerDriverStringProperty.SSL_PROTOCOL.toString(), sslProtocol);
     }
@@ -673,7 +673,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * Setting the query timeout
-     * 
+     *
      * @param queryTimeout
      *            The number of seconds to wait before a timeout has occurred on a query. The default value is 0, which means infinite timeout.
      */
@@ -683,17 +683,17 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * Getting the query timeout
-     * 
+     *
      * @return The number of seconds to wait before a timeout has occurred on a query.
      */
     public int getQueryTimeout() {
         return getIntProperty(connectionProps, SQLServerDriverIntProperty.QUERY_TIMEOUT.toString(),
                 SQLServerDriverIntProperty.QUERY_TIMEOUT.getDefaultValue());
     }
-    
+
     /**
      * Setting the cancel timeout
-     * 
+     *
      * @param cancelQueryTimeout
      *            The number of seconds to wait before we wait for the query timeout to happen.
      */
@@ -703,7 +703,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * Getting the cancel timeout
-     * 
+     *
      * @return the number of seconds to wait before we wait for the query timeout to happen.
      */
     public int getCancelQueryTimeout() {
@@ -712,11 +712,11 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
     }
 
     /**
-     * If this configuration is false the first execution of a prepared statement will call sp_executesql and not prepare 
+     * If this configuration is false the first execution of a prepared statement will call sp_executesql and not prepare
      * a statement, once the second execution happens it will call sp_prepexec and actually setup a prepared statement handle. Following
      * executions will call sp_execute. This relieves the need for sp_unprepare on prepared statement close if the statement is only
-     * executed once.  
-     * 
+     * executed once.
+     *
      * @param enablePrepareOnFirstPreparedStatementCall
      *      Changes the setting per the description.
      */
@@ -728,7 +728,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
      * If this configuration returns false the first execution of a prepared statement will call sp_executesql and not prepare a statement, once the
      * second execution happens it will call sp_prepexec and actually setup a prepared statement handle. Following executions will call sp_execute.
      * This relieves the need for sp_unprepare on prepared statement close if the statement is only executed once.
-     * 
+     *
      * @return Returns the current setting per the description.
      */
     public boolean getEnablePrepareOnFirstPreparedStatementCall() {
@@ -742,7 +742,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
      * clean-up the outstanding handles on the server is executed. If the setting is {@literal <=} 1 unprepare actions will be executed immedietely on
      * prepared statement close. If it is set to {@literal >} 1 these calls will be batched together to avoid overhead of calling sp_unprepare too
      * often.
-     * 
+     *
      * @param serverPreparedStatementDiscardThreshold
      *            Changes the setting per the description.
      */
@@ -755,7 +755,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
      * clean-up the outstanding handles on the server is executed. If the setting is {@literal <=} 1 unprepare actions will be executed immedietely on
      * prepared statement close. If it is set to {@literal >} 1 these calls will be batched together to avoid overhead of calling sp_unprepare too
      * often.
-     * 
+     *
      * @return Returns the current setting per the description.
      */
     public int getServerPreparedStatementDiscardThreshold() {
@@ -765,7 +765,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * Specifies the size of the prepared statement cache for this connection. A value less than 1 means no cache.
-     * 
+     *
      * @param statementPoolingCacheSize
      *            Changes the setting per the description.
      */
@@ -775,22 +775,22 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * Returns the size of the prepared statement cache for this connection. A value less than 1 means no cache.
-     * 
+     *
      * @return Returns the current setting per the description.
      */
     public int getStatementPoolingCacheSize() {
         int defaultSize = SQLServerDriverIntProperty.STATEMENT_POOLING_CACHE_SIZE.getDefaultValue();
         return getIntProperty(connectionProps, SQLServerDriverIntProperty.STATEMENT_POOLING_CACHE_SIZE.toString(), defaultSize);
     }
-    
+
     /**
      * Disable/enable statement pooling.
      * @param disableStatementPooling true to disable statement pooling, false to enable it.
      */
     public void setDisableStatementPooling(boolean disableStatementPooling) {
-        setBooleanProperty(connectionProps, SQLServerDriverBooleanProperty.DISABLE_STATEMENT_POOLING.toString(), disableStatementPooling);       
+        setBooleanProperty(connectionProps, SQLServerDriverBooleanProperty.DISABLE_STATEMENT_POOLING.toString(), disableStatementPooling);
     }
-    
+
     /**
      * Determine whether statement pooling is disabled.
      * @return true if statement pooling is disabled, false if it is enabled.
@@ -803,7 +803,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * Setting the socket timeout
-     * 
+     *
      * @param socketTimeout
      *            The number of milliseconds to wait before a timeout is occurred on a socket read or accept. The default value is 0, which means
      *            infinite timeout.
@@ -814,7 +814,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * Getting the socket timeout
-     * 
+     *
      * @return The number of milliseconds to wait before a timeout is occurred on a socket read or accept.
      */
     public int getSocketTimeout() {
@@ -825,7 +825,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
     /**
      * Sets the login configuration file for Kerberos authentication. This
      * overrides the default configuration <i> SQLJDBCDriver </i>
-     * 
+     *
      * @param configurationName the configuration name
      */
     public void setJASSConfigurationName(String configurationName) {
@@ -835,14 +835,14 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
 
     /**
      * Retrieves the login configuration file for Kerberos authentication.
-     * 
+     *
      * @return login configuration file name
      */
     public String getJASSConfigurationName() {
         return getStringProperty(connectionProps, SQLServerDriverStringProperty.JAAS_CONFIG_NAME.toString(),
                 SQLServerDriverStringProperty.JAAS_CONFIG_NAME.getDefaultValue());
     }
-    
+
     // responseBuffering controls the driver's buffering of responses from SQL Server.
     // Possible values are:
     //
@@ -987,7 +987,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
         loggerExternal.exiting(getClassNameLogging(), "get" + propKey);
         return propValue;
     }
-    
+
     // Returns a SQLServerConnection given username, password, and pooledConnection.
     // Note that the DataSource properties set to connectionProps are used when creating
     // the connection.
@@ -1041,13 +1041,7 @@ public class SQLServerDataSource implements ISQLServerDataSource, DataSource, ja
         // Create new connection and connect.
         if (dsLogger.isLoggable(Level.FINER))
             dsLogger.finer(toString() + " Begin create new connection.");
-        SQLServerConnection result = null;
-        if (Util.use43Wrapper()) {
-            result = new SQLServerConnection43(toString());
-        }
-        else {
-            result = new SQLServerConnection(toString());
-        }
+        SQLServerConnection result = new SQLServerConnection(toString());
         result.connect(mergedProps, pooledConnection);
         if (dsLogger.isLoggable(Level.FINER))
             dsLogger.finer(toString() + " End create new connection " + result.toString());
