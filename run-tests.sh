@@ -28,4 +28,6 @@ export mssql_jdbc_test_connection_properties='jdbc:sqlserver://localhost:1433;da
 export mssql_jdbc_logging='true'
 export mssql_jdbc_logging_handler="'console'|'file'"
 
-(mvn test; docker stop $DOCKER_PID && docker rm $DOCKER_PID)
+# mvn test
+
+docker stop $DOCKER_PID && docker rm $DOCKER_PID && echo "Removed container $DOCKER_PID"
